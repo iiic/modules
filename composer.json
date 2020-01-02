@@ -1,0 +1,33 @@
+{
+	"name": "ic/js-modules",
+	"type": "module",
+	"description": "Javascript modules",
+	"keywords": [
+		"javascript",
+		"module"
+	],
+	"homepage": "http://github.com/iiic/modules",
+	"version": "0.0.1",
+	"license": "CC BY",
+	"authors": [
+		{
+			"name": "Michal Lupečka",
+			"email": "ic.czech+composer@gmail.com",
+			"homepage": "http://iiic.dev",
+			"role": "Coder"
+		}
+	],
+	"require": {
+		"php": ">=5.3.2"
+	},
+	"autoload": {
+		"psr-0": {
+			"js-modules": ""
+		}
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-master": "0.0.x-dev"
+		}
+	}
+}
