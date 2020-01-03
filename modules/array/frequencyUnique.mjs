@@ -4,7 +4,7 @@ export class append
 {
 	constructor ( a = Array )
 	{
-		const FUNCTION_NAME = 'capitalize';
+		const FUNCTION_NAME = 'frequencyUnique';
 
 		if ( typeof a()[ FUNCTION_NAME ] !== 'function' ) {
 			Object.defineProperty( a.prototype, FUNCTION_NAME, {
