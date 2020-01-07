@@ -21,7 +21,7 @@ export class append
 					if ( Number( maxLength ) <= 0 ) {
 						return '';
 					} else if ( this.length > maxLength ) {
-						const regular = new RegExp( '^.{1,' + maxLength + '}(?=[\s' + ASCII_NULL + '-' + ASCII_COMMERCIAL_AT + ASCII_LEFT_SQUARE_BRACKET + '-' + ASCII_GRAVE_ACCENT + ASCII_LEFT_CURLY_BRACKET + '-' + ASCII_DELETE + '])', 'us' ); // neměly by ty znaky být escapovany 2x ? viz. \\s ? zkontrolovat jak to jede
+						const regular = new RegExp( '^.{1,' + maxLength + '}(?=[\s' + ASCII_NULL + '-' + ASCII_COMMERCIAL_AT + ASCII_LEFT_SQUARE_BRACKET + '-' + ASCII_GRAVE_ACCENT + ASCII_LEFT_CURLY_BRACKET + '-' + ASCII_DELETE + '])', 'u' );
 						let parts = [];
 						maxLength = maxLength - append.length;
 						if ( maxLength < 1 ) {
