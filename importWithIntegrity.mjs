@@ -15,12 +15,11 @@ export function importWithIntegrity ( /** @type {String} */ path, /** @type {Str
 		integrity = POSSIBLE_HASHES[ 0 ] + INTEGRITY_DIVIDER + integrity;
 	}
 
-	/** @type {HTMLLinkElement} */
-	const element = ( document.createElement( 'LINK' ) );
+	/** @type {HTMLScriptElement} */
+	const element = ( document.createElement( 'SCRIPT' ) ); // link rel="preload" also working, but NOT in Firefox :(
 
-	element.rel = 'preload';
-	element.as = 'script';
-	element.href = path;
+	element.type = 'module';
+	element.src = path;
 	element.integrity = integrity;
 	element.setAttribute( 'crossorigin', 'anonymous' );
 	document.head.appendChild( element );
