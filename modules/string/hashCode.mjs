@@ -9,7 +9,7 @@ export class append
 		if ( typeof s()[ FUNCTION_NAME ] !== 'function' ) {
 
 			Object.defineProperty( s.prototype, FUNCTION_NAME, {
-				value: function ()
+				value: function () : String
 				{
 					let hash = 0;
 					for ( let i = 0; i < this.length; i++ ) {
@@ -17,7 +17,7 @@ export class append
 						hash = ( ( hash << 5 ) - hash ) + character;
 						hash = hash & hash; // Convert to 32bit integer
 					}
-					return hash;
+					return Number(hash).toString(36);
 				},
 				writable: false,
 				configurable: false,
