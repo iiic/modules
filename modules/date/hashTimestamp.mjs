@@ -20,7 +20,7 @@ export class append
 		}
 
 		if ( typeof d()[ FUNCTION_NAME ] !== 'function' ) {
-			Object.defineProperty( d, 'hashTimestamp', { // without Date constructor
+			Object.defineProperty( d, FUNCTION_NAME, { // without Date constructor
 				value: function ()
 				{
 					return common( this.now() );
@@ -29,7 +29,7 @@ export class append
 				configurable: false,
 				enumerable: false,
 			} );
-			Object.defineProperty( d.prototype, 'hashTimestamp', { // with Date constructor
+			Object.defineProperty( d.prototype, FUNCTION_NAME, { // with Date constructor
 				value: function ()
 				{
 					return common( this.getTime() );
