@@ -7,8 +7,8 @@
 		"module"
 	],
 	"homepage": "http://github.com/iiic/modules",
-	"version": "0.0.1",
-	"license": "CC BY",
+	"version": "0.0.2",
+	"license": "CC BY SA",
 	"authors": [
 		{
 			"name": "Michal Lupečka",
