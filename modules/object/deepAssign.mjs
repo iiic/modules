@@ -12,10 +12,7 @@ export class append
 					args.forEach( ( /** @type {Object} */ source ) =>
 					{
 						if ( source instanceof Array ) {
-							if ( !( currentLevel instanceof Array ) ) {
-								currentLevel = new Array;
-							}
-							currentLevel = [ ...currentLevel, ...source ];
+							currentLevel = source;
 						} else {
 							o.entries( source ).forEach( ( [ /** @type {String} */ key, value ] ) =>
 							{
