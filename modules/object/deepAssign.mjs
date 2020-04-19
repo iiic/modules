@@ -11,13 +11,20 @@ export class append
 					let currentLevel = o;
 					args.forEach( ( /** @type {Object} */ source ) =>
 					{
-						o.entries( source ).forEach( ( [ /** @type {String} */ key, value ] ) =>
-						{
-							if ( value instanceof o && key in currentLevel ) {
-								value = o[ FUNCTION_NAME ]( currentLevel[ key ], value );
+						if ( source instanceof Array ) {
+							if ( !( currentLevel instanceof Array ) ) {
+								currentLevel = new Array;
 							}
-							currentLevel = { ...currentLevel, [ key ]: value };
-						} );
+							currentLevel = [ ...currentLevel, ...source ];
+						} else {
+							o.entries( source ).forEach( ( [ /** @type {String} */ key, value ] ) =>
+							{
+								if ( value instanceof o && key in currentLevel ) {
+									value = o[ FUNCTION_NAME ]( currentLevel[ key ], value );
+								}
+								currentLevel = { ...currentLevel, [ key ]: value };
+							} );
+						}
 					} );
 					return currentLevel;
 				},
