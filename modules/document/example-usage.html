@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>javascript: querySelectorPromise</title>
+	<script src="/modules/document/querySelectorPromise.mjs" crossorigin="anonymous" integrity="sha256-O42I8ZkwC0ZaJtqAMdd6i+UbDxc1befgchpKHyjGRRE="></script>
+</head>
+
+<body>
+
+	<p id="description">querySelectorPromise() is small javascript to add <code>querySelectorPromise()</code> into document. Work's like normal <code>querySelector()</code>, but can be used before HTML element</p>
+
+	<script type="module">
+		import( '/modules/document/querySelectorPromise.mjs' ).then( ( /** @type {Module} */ querySelectorPromise ) => {
+			new querySelectorPromise.append();
+		} ).then( () => {
+			document.querySelectorPromise( '#description' ).then( ( item ) => {
+				console.log( item );
+			} );
+			document.querySelectorPromise( 'h3' ).then( ( item ) => {
+				console.log( item );
+			} );
+			document.querySelectorPromise( '#p' ).then( ( item ) => {
+				console.log( item );
+			} );
+		} );
+	</script>
+
+	<h1 id="h1">h1</h1>
+
+	<pre>
+		<script>
+			//evil blocking javascript loop
+			const isPrime = num => {
+				for ( let i = 2; i < num; i++ )
+					if ( num % i === 0 ) return false;
+				return num !== 1;
+			}
+			let i = 0;
+			const ridge = 50000
+			while ( i < ridge )
+			{
+				if ( isPrime( i ) )
+				{
+					document.write( i + ' ' );
+				}
+				i++;
+			}
+		</script>
+	</pre>
+
+	<h2 id="h2">h2</h2>
+
+	<pre>
+		<script>
+			//evil blocking javascript loop
+			while ( i < ( ridge + ridge ) )
+			{
+				if ( isPrime( i ) )
+				{
+					document.write( i + ' ' );
+				}
+				i++;
+			}
+		</script>
+	</pre>
+
+	<h3 id="h3">h3</h3>
+
+	<pre>
+		<script type="module">
+			//evil blocking javascript loop
+			while ( i < ( ridge + ridge + ridge ) )
+			{
+				if ( isPrime( i ) )
+				{
+					document.write( i + ' ' );
+				}
+				i++;
+			}
+		</script>
+	</pre>
+
+	<h4 id="h4">h4</h4>
+
+	<pre>
+			<script type="module">
+				//evil blocking javascript loop
+				while ( i < ( ridge + ridge + ridge ) )
+				{
+					if ( isPrime( i ) )
+					{
+						document.write( i + ' ' );
+					}
+					i++;
+				}
+				setTimeout( () => {
+					const p = document.createElement( 'p' );
+					p.id = 'p';
+					p.appendChild( document.createTextNode( 'paragraph created by javascript module 5s waiting with setTimeout()' ) );
+					document.body.appendChild( p );
+				}, 5000 );
+			</script>
+		</pre>
+
+	<h5 id="h5">h5 - end. Look into console… and maybe refresh</h5>
