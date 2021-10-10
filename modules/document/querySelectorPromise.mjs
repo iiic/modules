@@ -43,6 +43,14 @@ export class append
 											observer.disconnect();
 											return resolve( element );
 										}
+
+										[ ...element.getElementsByTagName( '*' ) ].forEach( function ( /** @type {Element} */ element )
+										{
+											if ( element.matches( selector ) ) {
+												observer.disconnect();
+												return resolve( element );
+											}
+										} );
 									}
 								} );
 							} );
