@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>javascript: Array.combine()</title>
+	<script type="module" src="/modules/array/combine.mjs" crossorigin="anonymous" integrity="sha256-hd/gg29Xt/YzBIFqSsiPU6Ckll3mw/VFOoot5NCQ+Cc="></script>
+</head>
+
+<body>
+
+	<p>Look into console</p>
+
+	<script type="module">
+		import( '/modules/array/combine.mjs' ).then( ( /** @type {Module} */ combine ) => {
+			new combine.append( Array );
+		} ).then( () => {
+			const combinedArray = [ '0', '1', '2', '3' ].combine();
+			console.log( combinedArray );
+		} );
+	</script>

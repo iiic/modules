@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>javascript: něco nového</title>
+	<script type="module" src="/modules/element/forceTriggerEvent.mjs" crossorigin="anonymous" integrity="sha256-voVh5+AfDclxcmBs2oUFT4P7WD1qOK7HE7wRNMV5Pjk="></script>
+</head>
+
+<body>
+
+	<input id="input" type="text">
+	<button id="input-change">Change</button>
+
+	<br><br><br>
+
+	<select id="select">
+		<option value="">- select -</option>
+		<option value="1">first</option>
+		<option value="2">second</option>
+	</select>
+	<button id="select-change-by-value">Change by value property</button>
+	<button id="select-change-by-selectedIndex">Change by selectedIndex property</button>
+
+	<script type="module">
+		import( '/modules/element/forceTriggerEvent.mjs' ).then( ( /** @type {Module} */ forceTriggerEvent ) => {
+			new forceTriggerEvent.append( HTMLElement );
+		} ).then( () => {
+			document.getElementById( 'input' ).forceTriggerEvent( 'change' );
+			document.getElementById( 'select' ).forceTriggerEvent( 'change' );
+		} );
+	</script>
+
+	<script type="module">
+		document.getElementById( 'input' ).addEventListener( 'change', () => {
+			console.log( 'now changing input' );
+		}, false );
+
+		document.getElementById( 'select' ).addEventListener( 'change', () => {
+			console.log( 'now changing select' );
+		}, false );
+
+		document.getElementById( 'input-change' ).addEventListener( 'click', function ( event ) {
+			document.getElementById( 'input' ).value += 'Z';
+		}, false );
+
+		document.getElementById( 'select-change-by-value' ).addEventListener( 'click', function ( event ) {
+			document.getElementById( 'select' ).value = document.getElementById( 'select' ).value === '1' ? '2' : '1';
+		}, false );
+
+		document.getElementById( 'select-change-by-selectedIndex' ).addEventListener( 'click', function ( event ) {
+			document.getElementById( 'select' ).selectedIndex = document.getElementById( 'select' ).value === '1' ? '2' : '1';
+		}, false );
+	</script>

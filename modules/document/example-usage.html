@@ -12,7 +12,7 @@
 
 	<script type="module">
 		import( '/modules/document/querySelectorPromise.mjs' ).then( ( /** @type {Module} */ querySelectorPromise ) => {
-			new querySelectorPromise.append();
+			new querySelectorPromise.append( Document );
 		} ).then( () => {
 			document.querySelectorPromise( '#description' ).then( ( item ) => {
 				console.log( item );
