@@ -13,7 +13,7 @@ export class append
 					{
 						if ( source instanceof Array ) {
 							currentLevel = source;
-						} else {
+						} else if ( source !== null ) {
 							o.entries( source ).forEach( ( [ /** @type {String} */ key, value ] ) =>
 							{
 								if ( value instanceof o && key in currentLevel ) {
