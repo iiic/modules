@@ -16,7 +16,15 @@ export class append
 
 					attrNames.forEach( ( /** @type {String} */ attrName = '' ) =>
 					{
-						this.setAttribute( attrName, attributes[ attrName ] );
+
+						/** @type {String|Boolean} */
+						const attrValue = attributes[ attrName ];
+
+						if ( attrValue === true || attrValue === false ) {
+							this[ attrName ] = attrValue;
+						} else {
+							this.setAttribute( attrName, attrValue );
+						}
 					} );
 				},
 				writable: false,
